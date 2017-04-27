@@ -32,7 +32,7 @@ func intraverse(root *Node) {
 }
 
 // if we are going to insert a new node into the tree we will pass the node to the function and check for left or right child everytime until null is passed to the root
-// where comes the base condition fo the recursion which checks for if the value pass to the insert node is null then we will insert a new node and return its address
+// where comes the base condition for the recursion which checks if the value pass to the insert node is null then we will insert a new node and return its address
 // always remember we will traverse the tree for checking node exists and left value exists until we pass null to the function as node
 // function contains root argument to check if it is ull or contains left or right and a value which will be inserted as a node if root passed int the function goes null
 func insert(root *Node, v int) *Node {
@@ -42,7 +42,7 @@ func insert(root *Node, v int) *Node {
 		return root
 	}
 	// if above condition is not satisfied then the root passed by the function contains value that means we should move down one more node to check and pass null
-	// untill there is no left and right child so we keep moving until we pass null to the insert function called recursively in the below conditions
+	// until there is no left and right child so we keep moving until we pass null to the insert function called recursively in the below conditions
 
 	// check if the root is greater than value or not
 	if v < root.value {
