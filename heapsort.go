@@ -4,9 +4,9 @@ import "fmt"
 
 func main() {
 	s := []int{7, 9, 14, 16, 3, 2, 10, 4, 1, 8}
-	len := len(s)/2 - 1
+	length := len(s)/2 - 1
 	var sorted = make([]int, len, len*2+1)
-	for i := len; i >= 0; i-- {
+	for i := length; i >= 0; i-- {
 		sorted = heapify(s, i)
 		fmt.Println(sorted)
 	}
