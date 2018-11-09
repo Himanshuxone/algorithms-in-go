@@ -4,39 +4,64 @@ import (
 	"fmt"
 )
 
-func main() {
+type Node struct{
+	name string
+	color string
+	predecessor	*Node
+	d,f int
+}
+var (
+	graph = make(map[*Node][]*Node, 0)
+	time int
+)
 
-	graph := map[string][]string{
-		"A": []string{"B"},
-		"B": []string{"C"},
-		"C": []string{"E"},
-		"D": []string{"B"},
-		"E": []string{"D", "F"},
+func main() {
+	a := &Node{name:"A"}
+	b := &Node{name:"B"}
+	c := &Node{name:"C"}
+	d := &Node{name:"D"}
+	e := &Node{name:"E"}
+	f := &Node{name:"F"}
+	graph = map[*Node][]*Node{
+		a:[]*Node{},
+		b:[]*Node{},
+		c:[]*Node{},
+		d:[]*Node{},
+		e:[]*Node{d,f},
+		f:[]*Node{},
+	}
+	dfs(graph)
+	fmt.Printf("Depth First Search: %+v", graph[e][0])
+}
+
+func dfs(graph map[*Node][]*Node){
+	for u,_ := range graph{
+		u.color = "white"
+		u.predecessor = nil
 	}
 
-	fmt.Println("Graph for searching a node:", graph)
-
-	var visitedNodes map[string]int
-	visitedNodes = make(map[string]int)
-	value := dfsVisit(graph, visitedNodes, "A", "F")
-	fmt.Println(value)
+	time = 0
+	// set time to zero initially
+	for u, _ := range graph{
+		if u.color == "white" {
+			dfsVisit(u)
+		}
+	}
 }
 
 //  Create a function to visit all the adjacent nodes of all the nodes in the graph
-func dfsVisit(graph map[string][]string, visitedNodes map[string]int, node, soughtValue string) bool {
-
-	if node == soughtValue {
-		return true
-	}
-
-	for _, value := range graph[node] {
-		if _, ok := visitedNodes[value]; !ok {
-			visitedNodes[value] = 1
-			fmt.Println("Nodes vistied:", visitedNodes)
-			if dfsVisit(graph, visitedNodes, value, soughtValue) {
-				return true
-			}
+func dfsVisit(u *Node) {
+	time = time+1
+	u.d = time
+	u.color = "gray"
+	for _,v := range graph[u]{
+		if v.color == "white"{
+			v.predecessor = u
+			dfsVisit(v)
 		}
 	}
-	return false
+	u.color = "black"
+	time = time+1
+	u.f = time 
+	fmt.Println(u.d, u.f, u.name)
 }
