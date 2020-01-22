@@ -9,7 +9,7 @@ func main() {
 }
 
 func mergesort(s []int) []int {
-	// create a base return for recursion else the function enters into the error of stackoverflow
+	// create a base return
 	if len(s) <= 1 {
 		return s
 	}
