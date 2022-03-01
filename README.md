@@ -12,7 +12,7 @@ Fles are not compiled. For compiling download repo and read on how to compile in
 
 ## Versioning
 
-Version 1.0.0
+> Version 2.0.0
 
 ## Authors
 
