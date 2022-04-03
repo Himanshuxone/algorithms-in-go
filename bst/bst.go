@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	s := []int{4, 3, 9, 5, 1, 2, 8, 10}
+	s := []int{9, 4, 3, 6, 1, 2, 10, 5, 7, 8, 16, 12, 17, 14}
 	var treeNode *Node //initialize empty node struct to start recursion
 	fmt.Printf("Create bst of provided array : %d \n", s)
 	for i := 0; i < len(s); i++ {
@@ -21,13 +21,13 @@ type Node struct {
 	rightChild *Node // pointer to the right child of teh node
 }
 
-// create a function whiclll traverse recursively printing the node value until ffind the leaf node
+// create a function which will traverse recursively printing the node value until find the leaf node
 func intraverse(root *Node) {
 	if root == nil {
 		return
 	}
 	intraverse(root.leftChild)
-	fmt.Printf("%d", root.value)
+	fmt.Printf("%d\n", root.value)
 	intraverse(root.rightChild)
 }
 
@@ -36,7 +36,7 @@ func intraverse(root *Node) {
 // always remember we will traverse the tree for checking node exists and left value exists until we pass null to the function as node
 // function contains root argument to check if it is ull or contains left or right and a value which will be inserted as a node if root passed int the function goes null
 func insert(root *Node, v int) *Node {
-	// check recursively until we reaches to the end of the tree where there is not left or right child and root is empty
+	// check recursively until we reaches to the end of the tree where there is no left or right child and root is empty
 	if root == nil {
 		root = &Node{v, nil, nil} //insert the value when we finally comes to empty root passed by the left or right condition below
 		return root

@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// Node will contains graph node structure
 type Node struct {
 	name        string
 	color       string
@@ -36,14 +37,14 @@ func main() {
 }
 
 func dfs(graph map[*Node][]*Node) {
-	for u, _ := range graph {
+	for u := range graph {
 		u.color = "white"
 		u.predecessor = nil
 	}
 
 	time = 0
 	// set time to zero initially
-	for u, _ := range graph {
+	for u := range graph {
 		if u.color == "white" {
 			dfsVisit(u)
 		}

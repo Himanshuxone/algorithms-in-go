@@ -5,42 +5,14 @@ import "fmt"
 func main() {
 	// create a adjacency lists of graph
 	maps := map[string]map[int]string{
-		"a": map[int]string{
-			1: "z",
-			2: "s",
-		},
-		"z": map[int]string{
-			1: "a",
-		},
-		"s": map[int]string{
-			1: "a",
-			2: "x",
-		},
-		"x": map[int]string{
-			1: "d",
-			2: "s",
-			3: "c",
-		},
-		"d": map[int]string{
-			1: "c",
-			2: "x",
-			3: "f",
-		},
-		"c": map[int]string{
-			1: "x",
-			2: "d",
-			3: "f",
-			4: "v",
-		},
-		"v": map[int]string{
-			1: "c",
-			2: "f",
-		},
-		"f": map[int]string{
-			1: "d",
-			2: "c",
-			3: "v",
-		},
+		"a": {1: "z", 2: "s"},
+		"z": {1: "a"},
+		"s": {1: "a", 2: "x"},
+		"x": {1: "d", 2: "s", 3: "c"},
+		"d": {1: "c", 2: "x", 3: "f"},
+		"c": {1: "x", 2: "d", 3: "f", 4: "v"},
+		"v": {1: "c", 2: "f"},
+		"f": {1: "d", 2: "c", 3: "v"},
 	}
 	// start visitng graph from node s
 	visit(maps, "s")

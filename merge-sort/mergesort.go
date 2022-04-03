@@ -2,11 +2,9 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 func Merge(l, r []int) []int {
-
 	ret := make([]int, 0, len(l)+len(r))
 	for len(l) > 0 || len(r) > 0 {
 		if len(l) == 0 {
@@ -23,8 +21,6 @@ func Merge(l, r []int) []int {
 			r = r[1:]
 		}
 	}
-	fmt.Println(ret)
-	os.Exit(1)
 	return ret
 }
 
@@ -34,9 +30,7 @@ func MergeSort(s []int) []int {
 	}
 	n := len(s) / 2
 	l := MergeSort(s[:n])
-	fmt.Println(l)
 	r := MergeSort(s[n:])
-	fmt.Println(r)
 	return Merge(l, r)
 }
 
