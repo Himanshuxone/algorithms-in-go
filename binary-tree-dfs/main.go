@@ -10,8 +10,6 @@ type TreeNode struct {
 }
 
 func main() {
-	// Input: root = [3,9,20,null,null,15,7]
-	// Output: 3
 	// Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
 	// Output: 6
 	// Explanation: The LCA (Lowest Common ancestor) of nodes 2 and 8 isx 6.
@@ -56,15 +54,6 @@ func traverse(node *TreeNode, resp map[int][]int) {
 	traverse(node.Left, resp)
 	traverse(node.Right, resp)
 }
-
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val   int
- *     Left  *TreeNode
- *     Right *TreeNode
- * }
- */
 
 func TreeTraversalDFS(root *TreeNode) *TreeNode {
 	if root == nil {
