@@ -31,11 +31,15 @@ func rotateClockWise(matrix [][]int) [][]int {
 }
 
 func rotateCounterClockWise(matrix [][]int) [][]int {
-	n := len(matrix)
+	if len(matrix) == 0 {
+		return [][]int{}
+	}
+	n := len(matrix[0])
 	ret := make([][]int, n, (n*2)+1)
 	for i := 0; i < n; i++ {
-		ret[i] = make([]int, n)
-		for j := 0; j < n; j++ {
+		m := len(matrix)
+		ret[i] = make([]int, m)
+		for j := 0; j < m; j++ {
 			ret[i][j] = matrix[j][n-i-1]
 		}
 	}
